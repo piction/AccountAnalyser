@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AccountVisualizer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SourceCsv" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Users\\Trikkie\\_MAPPEN_\\Jonas\\Allerlei\\Surplas\\Financien\\AccountReport.csv</Value>
+    </Setting>
+    <Setting Name="SourceFolders" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;C:\Users\Trikkie\_MAPPEN_\Jonas\Allerlei\Surplas\Financien\Facturen_Inkomend\Facturen\2015&lt;/string&gt;
+  &lt;string&gt;C:\Users\Trikkie\_MAPPEN_\Jonas\Allerlei\Surplas\Financien\Facturen_Inkomend\Facturen\2016&lt;/string&gt;
+  &lt;string&gt;C:\Users\Trikkie\_MAPPEN_\Jonas\Allerlei\Surplas\Financien\Facturen_Inkomend\Facturen\2017&lt;/string&gt;
+  &lt;string&gt;C:\Users\Trikkie\_MAPPEN_\Jonas\Allerlei\Surplas\Financien\Facturen_Inkomend\OnkostenNotas&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="SourceCsvBackup" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Users\\Trikkie\\Documents\\Visual Studio 2017\\Projects\\AccountAnalyser\\AccountAnalyserTest\\TestData\\ExampleOverviewData.csv</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

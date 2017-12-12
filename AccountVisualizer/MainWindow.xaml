@@ -1,0 +1,57 @@
+﻿<Window x:Class="AccountVisualizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountVisualizer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        KeyDown="SaveShortKeyDown">
+
+    <Window.Resources>
+        <local:MyValueConverter x:Key="converter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Add Argenta csv" Click="MenuItemAddArgentaCsv_Click"/>
+                <MenuItem Header="Save As" Click="MenuItemSaveAs_Click"/>
+                <MenuItem Header="Save" Click="MenuItemSave_Click"/>
+            </MenuItem>
+            <MenuItem Header="Action">
+                <MenuItem Header="Loop incomplete" Click="MenuLoopIncomplete_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <DataGrid  Grid.Row="1" x:Name="AllTransactionsGrid" Margin="5"
+                   MouseRightButtonUp="AllTransactionsGrid_MouseRightButtonUp">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight"  Value="Bold" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Amount, Converter={StaticResource converter}}" Value="1">
+                            <Setter Property="Background" Value="LightGreen"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+
+            </DataGrid.Resources>
+
+        </DataGrid>
+
+
+    </Grid>
+</Window>

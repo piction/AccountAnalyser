@@ -1,0 +1,96 @@
+﻿<Window x:Class="AccountVisualizer.UpdateTransactionInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountVisualizer"
+        mc:Ignorable="d"
+        Title="Update Transaction Info" Height="300" Width="600" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    
+    <StackPanel Orientation="Vertical" Margin="5">
+        <Label x:Name="titleLabel" Content="title" FontSize="15" FontWeight="Bold"/>
+        <Label x:Name="descriptionLabel" Content="description" FontSize="12"/>
+
+        <StackPanel x:Name="InvoiceDateInput" Orientation="Horizontal" Margin="2">
+            <Label Content="FactuurDatum [dd/mm/yy]:" MinWidth="155"/>
+            <StackPanel x:Name="InvoiceDateInput_ddmmyy" Orientation="Horizontal" Margin="0">
+                <TextBox x:Name="InvoiceDate_dd" Width="40" Focusable="True" Margin="0,0,0,0"/>
+                <Label Content="/" MinWidth="5"/>
+                <TextBox x:Name="InvoiceDate_mm" Width="40" Focusable="True" Margin="2,0,0,0"/>
+                <Label Content="/" MinWidth="5"/>
+                <TextBox x:Name="InvoiceDate_yy" Width="40" Focusable="True" Margin="2,0,0,0"/>
+                <Label Content="Is processed:" MinWidth="5"/>
+                <CheckBox x:Name="IsProcessedCheckbox" Focusable="True" Margin="2,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel x:Name="SurplasDesc" Orientation="Horizontal" Margin="2">
+            <Label Content="Surplas beschrijving:" MinWidth="155"/>
+            <TextBox x:Name="SurplasDescTextBlock" Width="400" Focusable="True" />
+        </StackPanel>
+
+        <StackPanel x:Name="File" Orientation="Horizontal" Margin="2">
+
+            <Label Content="File Name:" MinWidth="155"/>          
+            <TextBox x:Name ="FileNameTextBox" MinWidth="415" Text=""/>
+            <Button x:Name="BrowseFileNameBttn" Margin="10,0,0,0" MinWidth="30" Content="..."
+                    Click="BrowseFileNameBttn_Click"/>
+            <Button x:Name="OpenDocBtn" Margin="10,0,0,0" MinWidth="50" Content="Open"
+                    Click="OpenDocBtn_Click"/>
+
+        </StackPanel>
+
+        <StackPanel x:Name="Tags" Orientation="Horizontal" Margin="0,2,0,2">
+            <Grid x:Name="TagsGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="300" />
+                    <ColumnDefinition MinWidth="300" />
+                </Grid.ColumnDefinitions>
+
+
+                <!-- With DataTemplate -->
+                <ListBox Grid.Column="0"  x:Name="ListBoxTags1" BorderBrush="Transparent" 
+         Grid.IsSharedSizeScope="True"
+         HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MinWidth="90"/>
+                                <ColumnDefinition Width="*" />
+                                 <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold"  />
+                                <TextBox Grid.Column="1" Text="{Binding Amount }" PreviewTextInput="TextBoxAmountChanged" Margin="5,0,0,0"/>
+                                <Button Grid.Column="2"  Content="100%" Click="click_applyFullAmount" Margin="5,0,0,0"/>
+                            </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- With DataTemplate -->
+                <ListBox Grid.Column="1" x:Name="ListBoxTags2" BorderBrush="Transparent" 
+         Grid.IsSharedSizeScope="True"
+         HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" MinWidth="90"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold"  />
+                                <TextBox Grid.Column="1" Text="{Binding Amount }" PreviewTextInput="TextBoxAmountChanged" Margin="5,0,0,0" />
+                                <Button Grid.Column="2"  Content="100%"  Click="click_applyFullAmount" Margin="5,0,0,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+            </ListBox>
+            </Grid>
+        </StackPanel>
+
+
+        <Button x:Name="SaveBttn" Margin="0,10,0,0" Content="Save" Click="SaveBttn_Click"/>
+    </StackPanel>
+</Window>
